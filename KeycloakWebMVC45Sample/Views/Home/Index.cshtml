@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>Anasayfa ya Hoşgeldiniz!</h1>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Sayın :  "@this.User.Identity.Name" uygulamada oturum açmış durumdasınız.</p>
+    @Html.ActionLink("Diger login olunan güvenli sayfa girişi", "KeycloakGiris", "Home")
+}
+else
+{
+    <p>
+        Henüz uygulamaya giriş yapmadınız.
+        @Html.ActionLink("Uygulamaya Giriş", "KeycloakGiris", "Home")
+    </p>
+}
